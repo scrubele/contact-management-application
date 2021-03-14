@@ -18,7 +18,9 @@ import java.util.ResourceBundle;
 
 public class UpdateUserController implements Initializable {
     @FXML
-    private TextField l_first_name;
+    private TextField idperson;
+    @FXML
+    private TextField first_name;
     @FXML
     private TextField last_name;
     @FXML
@@ -54,7 +56,7 @@ public class UpdateUserController implements Initializable {
     @FXML
     public void resetAll() throws IOException {
         last_name.clear();
-        l_first_name.clear();
+        first_name.clear();
         nickname.clear();
         phone_number.clear();
         country.clear();
@@ -70,9 +72,17 @@ public class UpdateUserController implements Initializable {
         java.util.Date d = formatter.parse(birth_date.getValue().toString());
         formatter.applyPattern("yyyy-MM-dd hh:mm:ss.SSSSSS");
         String formattedBirthDate = formatter.format(d);
-        App.personDao.addPerson(last_name.getText(), l_first_name.getText(), nickname.getText(), phone_number.getText()
+        App.personDao.updatePerson(Integer.valueOf(idperson.getText()), last_name.getText(), first_name.getText(),
+                nickname.getText(),
+                phone_number.getText()
                 , address, email.getText(), formattedBirthDate);
-        System.out.println("Added");
+        System.out.println("Updated");
+    }
+
+    @FXML
+    public void removeUser() {
+        App.personDao.deletePerson(Integer.valueOf(idperson.getText()));
+        System.out.println("Deleted");
     }
 
 
@@ -90,8 +100,23 @@ public class UpdateUserController implements Initializable {
         });
     }
 
-    public void init(Person person){
-        String firstName = person.getFirstName();
-        l_first_name.setText(firstName);
+    public void init(Person person) {
+        idperson.setText(person.getIdperson().toString());
+        first_name.setText(person.getFirstName());
+        last_name.setText(person.getLastName());
+        nickname.setText(person.getNickname());
+        email.setText(person.getEmailAddress());
+        phone_number.setText(person.getPhoneNumber());
+        String[] addressParts = person.getAddress().split(", ");
+        try {
+            country.setText(addressParts[0]);
+            state.setText(addressParts[1]);
+            city.setText(addressParts[2]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
+        birth_date.setValue(person.getBirthDate());
+
+
     }
 }

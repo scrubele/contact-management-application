@@ -120,13 +120,15 @@ public class UserListController implements Initializable {
             Integer id = Integer.valueOf(textField.getText());
             Person person = App.personDao.getPerson(id);
             System.out.println("clicked on " + selectedItem[0].toString()+ textField + " "+ id);
+            FXMLLoader loader = new FXMLLoader(App.class.getResource("/fr/isen/java2/view/UpdateUserScreen.fxml"));
             try {
-                App.setRoot("/fr/isen/java2/view/UpdateUserScreen");
+                App.setRoot(loader);
+                UpdateUserController updateUserController = loader.getController();
+                updateUserController.init(person);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            UpdateUserController updateUserController = new UpdateUserController();
-            updateUserController.init(person);
+
         });
     }
 

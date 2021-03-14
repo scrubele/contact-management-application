@@ -55,7 +55,7 @@
         <JFXTextField fx:id="phone_number" focusColor="#48a5ea" layoutX="412.0" layoutY="283.0" prefHeight="25.0"
                       prefWidth="217.0"
                       promptText="Phone Number"/>
-        <Label layoutX="133.0" layoutY="31.0" text="Basic Details" textFill="#48a5ea">
+        <Label layoutX="133.0" layoutY="31.0" text="Add a new user" textFill="#48a5ea">
             <font>
                 <Font name="System Bold" size="16.0"/>
             </font>

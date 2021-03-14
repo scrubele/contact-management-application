@@ -39,7 +39,10 @@
                 </ImageView>
             </children>
         </Pane>
-        <JFXTextField fx:id="l_first_name" focusColor="#48a5ea" layoutX="133.0" layoutY="92.0" prefHeight="25.0"
+        <JFXTextField fx:id="idperson" focusColor="#48a5ea" layoutX="133.0" layoutY="92.0" prefHeight="25.0" disable="true"
+                      prefWidth="30.0"
+                      promptText="First Name"/>
+        <JFXTextField fx:id="first_name" focusColor="#48a5ea" layoutX="165.0" layoutY="92.0" prefHeight="25.0"
                       prefWidth="217.0"
                       promptText="First Name"/>
         <JFXTextField fx:id="nickname" focusColor="#48a5ea" layoutX="133.0" layoutY="157.0" prefHeight="25.0"
@@ -71,6 +74,9 @@
                       promptText="City"/>
         <JFXButton layoutX="133.0" layoutY="349.0" prefHeight="25.0" prefWidth="94.0" text="Clear All"
                    style="-fx-background-color: #48A5EA;" textFill="WHITE" onMousePressed="#resetAll"/>
+        <JFXButton layoutX="300.0" layoutY="349.0" prefHeight="25.0" prefWidth="116.0"
+                   style="-fx-background-color: #48A5EA;" text="Remove user" textFill="WHITE"
+                   onMousePressed="#removeUser"/>
         <JFXButton layoutX="524.0" layoutY="349.0" prefHeight="25.0" prefWidth="116.0"
                    style="-fx-background-color: #48A5EA;" text="Update user" textFill="WHITE"
                    onMousePressed="#updateUser"/>
