@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tooltip;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -48,24 +47,6 @@ public class UserListController implements Initializable {
         this.list = list;
     }
 
-    @FXML
-    private void handleCloseButton(MouseEvent event) {
-        System.exit(0);
-    }
-
-    @FXML
-    public void handleHomeButton() throws IOException {
-        // This is quite sparse : just load the next scene on click, and voilà!
-        App.setRoot("/fr/isen/java2/view/HomePageScreen");
-    }
-
-    @FXML
-    public void handleUserListButton() throws IOException {
-        // This is quite sparse : just load the next scene on click, and voilà!
-        App.setRoot("/fr/isen/java2/view/AddUserScreen");
-    }
-
-
     public void init() {
         int counter = 0;
         for (Person entry : this.list) {
@@ -81,7 +62,7 @@ public class UserListController implements Initializable {
                 (Event event) -> {
                     btn_add_user.requestFocus();
                     try {
-                        App.setRoot("/fr/isen/java2/view/AddUserScreen");
+                        App.setRoot(App.addUserScreenFXML);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -91,7 +72,7 @@ public class UserListController implements Initializable {
                 (Event event) -> {
                     btn_home.requestFocus();
                     try {
-                        handleHomeButton();
+                        App.setRoot(App.homePageScreenFXML);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -115,33 +96,33 @@ public class UserListController implements Initializable {
                     System.exit(0);
                     event.consume();
                 });
-        listView.setOnMouseClicked(event -> {
-            final Pane[] selectedItem = {new Pane()};
-            selectedItem[0] = listView.getSelectionModel().getSelectedItem();
-            Label textField = (Label) selectedItem[0].getChildren().get(0);
-            Integer id = Integer.valueOf(textField.getText());
-            Person person = App.personDao.getPerson(id);
-            System.out.println("clicked on " + selectedItem[0].toString() + textField + " " + id);
-            FXMLLoader loader = new FXMLLoader(App.class.getResource("/fr/isen/java2/view/UpdateUserScreen.fxml"));
-            try {
-                App.setRoot(loader);
-                UpdateUserController updateUserController = loader.getController();
-                updateUserController.init(person);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        });
-        btn_tooltip.setTooltip(new Tooltip("To view user details, click on user row"));
         btn_backup.setOnMouseClicked(event -> {
             btn_backup.requestFocus();
             try {
-                App.setRoot("/fr/isen/java2/view/BackupScreen");
+                App.setRoot(App.backupScreenFXML);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             event.consume();
         });
+        btn_tooltip.setTooltip(new Tooltip("To view user details, click on the user row"));
+        listView.setOnMouseClicked(event -> launchUserDetail());
+    }
+
+    protected void launchUserDetail() {
+        final Pane[] selectedItem = {new Pane()};
+        selectedItem[0] = listView.getSelectionModel().getSelectedItem();
+        Label textField = (Label) selectedItem[0].getChildren().get(0);
+        Integer id = Integer.valueOf(textField.getText());
+        Person person = App.personDao.getPerson(id);
+        FXMLLoader loader = new FXMLLoader(App.class.getResource(App.updateUserScreenFXML));
+        try {
+            App.setRoot(loader);
+            UpdateUserController updateUserController = loader.getController();
+            updateUserController.init(person);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void addRow(Person entry, String fxmlPath) {

@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.tuple;
 
 public class PersonDaoTestCase {
 
-    private PersonDao personDao = new PersonDao();
+    private final PersonDao personDao = new PersonDao();
 
     @Before
     public void initDb() throws Exception {

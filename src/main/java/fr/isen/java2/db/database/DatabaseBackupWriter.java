@@ -8,7 +8,6 @@ import java.util.List;
 
 public class DatabaseBackupWriter {
 
-
     public static void writeToCSV(List<String[]> csvData, String fileName) {
         try (CSVWriter writer = new CSVWriter(new FileWriter(fileName))) {
             writer.writeAll(csvData);
@@ -16,7 +15,4 @@ public class DatabaseBackupWriter {
             e.printStackTrace();
         }
     }
-
-
-
 }

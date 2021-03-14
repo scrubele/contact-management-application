@@ -16,7 +16,6 @@ public class PersonDao {
     private final String tableName = "person";
     private final Object[] columnNames = {"idperson", "lastname", "firstname", "nickname", "phone_number", "address",
             "email_address", "birth_date"};
-    private List<Person> personList = new ArrayList<>();
 
     public List<Person> listPersons() {
         List<Person> personList = new ArrayList<>();

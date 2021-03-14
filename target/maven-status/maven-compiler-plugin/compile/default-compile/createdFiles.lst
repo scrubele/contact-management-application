@@ -12,3 +12,4 @@ fr/isen/java2/db/daos/DataSourceFactory.class
 fr/isen/java2/db/daos/PersonDao.class
 fr/isen/java2/db/database/DatabaseConnector.class
 fr/isen/java2/db/entities/Person.class
+fr/isen/java2/view/UserController.class

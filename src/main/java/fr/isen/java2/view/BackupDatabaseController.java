@@ -5,11 +5,8 @@ import fr.isen.java2.db.database.DatabaseBackupWriter;
 import fr.isen.java2.db.entities.Person;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.DirectoryChooser;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,8 +19,9 @@ import java.util.Scanner;
 
 public class BackupDatabaseController implements Initializable {
 
+    final String CSV_OUTPUT_FILE = "data.csv";
     @FXML
-    TextArea CSVTextArea; //i think you already know about this
+    TextArea CSVTextArea;
 
     @FXML
     private void handleCloseButton(MouseEvent event) {
@@ -32,17 +30,17 @@ public class BackupDatabaseController implements Initializable {
 
     @FXML
     public void handleHomeButton() throws IOException {
-        App.setRoot("/fr/isen/java2/view/HomePageScreen");
+        App.setRoot(App.homePageScreenFXML);
     }
 
     @FXML
     public void handleUserListButton() throws IOException {
-        App.launchUserListController("/fr/isen/java2/view/UserListScreen");
+        App.launchUserListController(App.userListScreenFXML);
     }
 
     @FXML
     public void handleAddUserButton() throws IOException {
-        App.setRoot("/fr/isen/java2/view/AddUserScreen");
+        App.setRoot(App.addUserScreenFXML);
     }
 
     @FXML
@@ -52,30 +50,24 @@ public class BackupDatabaseController implements Initializable {
         for (Person person : personList) {
             personValuesList.add(person.getFields());
         }
-        DatabaseBackupWriter.writeToCSV(personValuesList, "data.csv");
-        showAlert("Information Dialog", "Database backup saved in data.csv!");
+        DatabaseBackupWriter.writeToCSV(personValuesList, CSV_OUTPUT_FILE);
+        App.showAlert("Information Dialog", "Database backup saved in data.csv!");
         showBackup();
     }
 
-    public void showAlert(String title, String contentText) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setContentText(contentText);
-        alert.showAndWait();
-    }
-
     public void showBackup() throws FileNotFoundException {
-        Scanner s = new Scanner(new File("data.csv")).useDelimiter("\n");
+        Scanner s = new Scanner(new File(CSV_OUTPUT_FILE)).useDelimiter("\n");
         CSVTextArea.clear();
         while (s.hasNext()) {
-            if (s.hasNextInt()) { // check if next token is an int
-                CSVTextArea.appendText(s.nextInt() + " "); // display the found integer
+            if (s.hasNextInt()) {
+                CSVTextArea.appendText(s.nextInt() + " ");
             } else {
-                CSVTextArea.appendText(s.next() + " "); // else read the next token
+                CSVTextArea.appendText(s.next() + " ");
             }
             CSVTextArea.appendText("\n");
         }
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }

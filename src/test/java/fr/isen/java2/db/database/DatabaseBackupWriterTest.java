@@ -10,8 +10,8 @@ import java.util.List;
 
 public class DatabaseBackupWriterTest extends TestCase {
 
-    private static List<String[]> dataList = new ArrayList<>();
-    private DatabaseBackupWriter backupWriter = new DatabaseBackupWriter();
+    private static final List<String[]> dataList = new ArrayList<>();
+    private final DatabaseBackupWriter backupWriter = new DatabaseBackupWriter();
 
     @Before
     private static void initList() {
@@ -26,7 +26,7 @@ public class DatabaseBackupWriterTest extends TestCase {
     @Test
     public void testWriteToCSV() {
         String fileName = "testCSV.csv";
-        this.backupWriter.writeToCSV(dataList, fileName);
+        DatabaseBackupWriter.writeToCSV(dataList, fileName);
         File backupFile = new File(fileName);
         assertTrue(backupFile.exists());
 

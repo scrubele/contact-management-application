@@ -10,7 +10,6 @@ public class Database {
 
     protected Query query;
 
-
     public Database() {
         connection = DatabaseConnector.getConnectionFromProps();
     }

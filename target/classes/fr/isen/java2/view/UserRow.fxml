@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
             prefHeight="50.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.141">
     <children>
-        <Label fx:id="idperson" layoutX="30.0" layoutY="6.0" prefWidth="30.0" text="Last name">
+        <Label fx:id="idperson" layoutX="30.0" layoutY="6.0" prefWidth="30.0" text="Last name" wrapText="true">
             <font>
                 <Font name="System" size="15.0"/>
             </font>
         </Label>
-        <Label fx:id="lastName" layoutX="60.0" layoutY="6.0" prefWidth="100.0" text="Last name">
+        <Label fx:id="lastName" layoutX="60.0" layoutY="6.0" prefWidth="100.0" text="Last name" wrapText="true">
             <font>
                 <Font name="System" size="15.0"/>
             </font>
         </Label>
-        <Label fx:id="firstName" layoutX="160.0" layoutY="6.0" prefWidth="100.0" text="First name">
+        <Label fx:id="firstName" layoutX="160.0" layoutY="6.0" prefWidth="100.0" text="First name" wrapText="true">
             <font>
                 <Font name="System" size="15.0"/>
             </font>
         </Label>
-        <Label fx:id="nickname" layoutX="260.0" layoutY="6.0" prefWidth="130.0" text="Nick name">
+        <Label fx:id="nickname" layoutX="260.0" layoutY="6.0" prefWidth="130.0" text="Nick name" wrapText="true">
             <font>
                 <Font name="System" size="15.0"/>
             </font>
@@ -35,7 +36,7 @@
                 <Font name="System" size="12.0"/>
             </font>
         </Label>
-        <ImageView  fx:id="imageView" layoutX="460.0" layoutY="6">
+        <ImageView fx:id="imageView" layoutX="460.0" layoutY="6">
             <image>
                 <Image
                         url="@images/user-blue.png"

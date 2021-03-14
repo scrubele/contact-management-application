@@ -20,13 +20,10 @@ public class UserRowController implements Initializable {
     protected Label firstName;
     @FXML
     protected Label nickname;
-
     @FXML
     protected ImageView imageView;
 
-
     public void init(Person entry) {
-
         this.idperson.setText(entry.getIdperson().toString());
         this.lastName.setText(entry.getLastName());
         this.firstName.setText(entry.getFirstName());
@@ -38,15 +35,5 @@ public class UserRowController implements Initializable {
     }
 
     public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
-    @Override
-    public String toString() {
-        return "UserRowController{" +
-                "lastName=" + lastName +
-                ", firstName=" + firstName +
-                ", nickname=" + nickname +
-                '}';
     }
 }
