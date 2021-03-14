@@ -57,6 +57,11 @@ public class UpdateUserController implements Initializable {
     }
 
     @FXML
+    public void handleBackupButton() throws IOException {
+        App.setRoot("/fr/isen/java2/view/BackupDatabaseScreen");
+    }
+
+    @FXML
     public void handleAddUserButton() throws IOException {
         App.setRoot("/fr/isen/java2/view/AddUserScreen");
 

@@ -19,19 +19,25 @@
                         <Image url="@images/home.png"/>
                     </image>
                 </ImageView>
-                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="137.0" pickOnBounds="true"
+                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="117.0" pickOnBounds="true"
                            preserveRatio="true" onMousePressed="#handleUserListButton">
                     <image>
                         <Image url="@images/user-group.png"/>
                     </image>
                 </ImageView>
-                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="237.0" pickOnBounds="true"
+                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="197.0" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
                         <Image url="@images/add-user.png"/>
                     </image>
                 </ImageView>
-                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="337.0" pickOnBounds="true"
+                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="277.0" pickOnBounds="true"
+                           preserveRatio="true"  onMousePressed="#handleBackupButton">
+                    <image>
+                        <Image url="@images/backup-icon.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="357.0" pickOnBounds="true"
                            preserveRatio="true" onMousePressed="#handleCloseButton">
                     <image>
                         <Image url="@images/x-mark-xxl.png"/>

@@ -52,6 +52,9 @@ public class UserListController implements Initializable {
     private Button btn_tooltip;
 
     @FXML
+    private Button btn_backup;
+
+    @FXML
     private void handleCloseButton(MouseEvent event) {
         System.exit(0);
     }
@@ -112,8 +115,14 @@ public class UserListController implements Initializable {
                     System.exit(0);
                     event.consume();
                 });
-        final Pane[] selectedItem = {new Pane()};
+        btn_exit.setOnMouseClicked(
+                (Event event) -> {
+                    btn_x.requestFocus();
+                    System.exit(0);
+                    event.consume();
+                });
         listView.setOnMouseClicked(event -> {
+            final Pane[] selectedItem = {new Pane()};
             selectedItem[0] = listView.getSelectionModel().getSelectedItem();
             Label textField = (Label) selectedItem[0].getChildren().get(0);
             Integer id = Integer.valueOf(textField.getText());
@@ -130,7 +139,15 @@ public class UserListController implements Initializable {
 
         });
         btn_tooltip.setTooltip(new Tooltip("To view user details, click on user row"));
-
+        btn_backup.setOnMouseClicked(event -> {
+            btn_backup.requestFocus();
+            try {
+                App.setRoot("/fr/isen/java2/view/BackupScreen");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            event.consume();
+        });
     }
 
     protected void addRow(Person entry, String fxmlPath) {

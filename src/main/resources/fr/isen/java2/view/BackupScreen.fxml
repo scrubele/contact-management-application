@@ -8,8 +8,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Button?>
 <AnchorPane id="AnchorPane" prefHeight="417.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1"
-            xmlns="http://javafx.com/javafx/8.0.111" fx:controller="fr.isen.java2.view.AddUserController">
+            xmlns="http://javafx.com/javafx/8.0.111" fx:controller="fr.isen.java2.view.BackupDatabaseController">
     <children>
         <Pane prefHeight="417.0" prefWidth="110.0" style="-fx-background-color: #48A5EA;">
             <children>
@@ -26,13 +27,13 @@
                     </image>
                 </ImageView>
                 <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="197.0" pickOnBounds="true"
-                           preserveRatio="true">
+                           preserveRatio="true" onMousePressed="#handleAddUserButton">
                     <image>
                         <Image url="@images/add-user.png"/>
                     </image>
                 </ImageView>
                 <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="277.0" pickOnBounds="true"
-                           preserveRatio="true"  onMousePressed="#handleBackupButton">
+                           preserveRatio="true">
                     <image>
                         <Image url="@images/backup-icon.png"/>
                     </image>
@@ -45,41 +46,15 @@
                 </ImageView>
             </children>
         </Pane>
-        <JFXTextField fx:id="first_name" focusColor="#48a5ea" layoutX="133.0" layoutY="92.0" prefHeight="25.0"
-        prefWidth="217.0"
-                      promptText="First Name"/>
-        <JFXTextField fx:id="nickname" focusColor="#48a5ea" layoutX="133.0" layoutY="157.0" prefHeight="25.0"
-                      prefWidth="217.0"
-                      promptText="Nickname"/>
-        <JFXTextField fx:id="email" focusColor="#48a5ea" layoutX="133.0" layoutY="283.0" prefHeight="25.0"
-                      prefWidth="217.0"
-                      promptText="Email"/>
-        <JFXTextField fx:id="last_name" focusColor="#48a5ea" layoutX="418.0" layoutY="92.0" prefHeight="25.0" prefWidth="217.0"
-                      promptText="Last Name"/>
-        <DatePicker fx:id="birth_date" layoutX="418.0" layoutY="157.0" prefHeight="25.0" prefWidth="217.0"
-                      promptText="Birth date"/>
-        <JFXTextField fx:id="phone_number" focusColor="#48a5ea" layoutX="412.0" layoutY="283.0" prefHeight="25.0"
-                      prefWidth="217.0"
-                      promptText="Phone Number"/>
-        <Label layoutX="133.0" layoutY="31.0" text="Add a new user" textFill="#48a5ea">
+        <Label layoutX="133.0" layoutY="31.0" text="Backup a database to csv file" textFill="#48a5ea">
             <font>
                 <Font name="System Bold" size="16.0"/>
             </font>
         </Label>
-        <JFXTextField fx:id="country" focusColor="#48a5ea" layoutX="133.0" layoutY="224.0" prefHeight="25.0"
-                      prefWidth="217.0"
-                     promptText="Country"/>
-        <JFXTextField fx:id="state" focusColor="#48a5ea" layoutX="415.0" layoutY="224.0" prefHeight="25.0"
-                      prefWidth="94.0"
-                     promptText="State"/>
-        <JFXTextField fx:id="city" focusColor="#48a5ea" layoutX="535.0" layoutY="224.0" prefHeight="25.0"
-                      prefWidth="94.0"
-                     promptText="City"/>
-        <JFXButton layoutX="133.0" layoutY="349.0" prefHeight="25.0" prefWidth="94.0" text="Clear All"
-                   style="-fx-background-color: #48A5EA;" textFill="WHITE" onMousePressed="#resetAll"/>
-        <JFXButton layoutX="524.0" layoutY="349.0" prefHeight="25.0" prefWidth="116.0"
-                   style="-fx-background-color: #48A5EA;" text="Add user" textFill="WHITE" onMousePressed="#addUser"/>
         <Separator layoutX="133.0" layoutY="68.0" prefHeight="1.0" prefWidth="520.0"/>
+        <Button layoutX="200.0" layoutY="150.0" onMousePressed="#handleDatabaseBackup">
+            <text>Backup a database</text>
+        </Button>
         <Label id="btn_exit" fx:id="btn_exit" layoutX="675.0" layoutY="2.0" onMousePressed="#handleCloseButton"
                prefHeight="25.0" prefWidth="21.0" text="X" textFill="#48a5ea">
             <font>

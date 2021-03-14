@@ -5,6 +5,7 @@
 /home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/db/database/Query.java
 /home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/db/database/Database.java
 /home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/view/UserRowController.java
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/view/BackupDatabaseController.java
 /home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/App.java
 /home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/view/UpdateUserController.java
 /home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/db/database/DatabaseBackupWriter.java

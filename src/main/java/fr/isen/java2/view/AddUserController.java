@@ -5,18 +5,14 @@ import fr.isen.java2.App;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class AddUserController implements Initializable {
@@ -52,6 +48,11 @@ public class AddUserController implements Initializable {
     }
 
     @FXML
+    public void handleBackupButton() throws IOException {
+        App.setRoot("/fr/isen/java2/view/BackupDatabaseScreen");
+    }
+
+    @FXML
     public void handleUserListButton() throws IOException {
         App.launchUserListController("/fr/isen/java2/view/UserListScreen");
     }
@@ -80,7 +81,6 @@ public class AddUserController implements Initializable {
                 , address, email.getText(), formattedBirthDate);
         System.out.println("Added");
     }
-
 
 
     @FXML
