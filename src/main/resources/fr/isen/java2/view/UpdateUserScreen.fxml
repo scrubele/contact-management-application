@@ -13,53 +13,67 @@
     <children>
         <Pane prefHeight="417.0" prefWidth="110.0" style="-fx-background-color: #48A5EA;">
             <children>
-                <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="45.0" layoutY="37.0" pickOnBounds="true"
+                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="37.0" pickOnBounds="true"
                            preserveRatio="true" onMousePressed="#handleHomeButton">
                     <image>
-                        <Image url="@images/home1.png"/>
+                        <Image url="@images/home.png"/>
                     </image>
                 </ImageView>
-                <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="45.0" layoutY="363.0" pickOnBounds="true"
+                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="137.0" pickOnBounds="true"
+                           preserveRatio="true" onMousePressed="#handleUserListButton">
+                    <image>
+                        <Image url="@images/user-group.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="237.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@images/add-user.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="337.0" pickOnBounds="true"
                            preserveRatio="true" onMousePressed="#handleCloseButton">
                     <image>
                         <Image url="@images/x-mark-xxl.png"/>
                     </image>
                 </ImageView>
-                <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="45.0" layoutY="198.0" pickOnBounds="true"
-                           preserveRatio="true" onMousePressed="#handleUserListButton">
-                    <image>
-                        <Image url="@images/user.png"/>
-                    </image>
-                </ImageView>
             </children>
         </Pane>
-        <JFXTextField focusColor="#48a5ea" layoutX="133.0" layoutY="92.0" prefHeight="25.0" prefWidth="217.0"
+        <JFXTextField fx:id="l_first_name" focusColor="#48a5ea" layoutX="133.0" layoutY="92.0" prefHeight="25.0"
+                      prefWidth="217.0"
                       promptText="First Name"/>
-        <JFXTextField focusColor="#48a5ea" layoutX="133.0" layoutY="157.0" prefHeight="25.0" prefWidth="217.0"
+        <JFXTextField fx:id="nickname" focusColor="#48a5ea" layoutX="133.0" layoutY="157.0" prefHeight="25.0"
+                      prefWidth="217.0"
                       promptText="Nickname"/>
-        <JFXTextField focusColor="#48a5ea" layoutX="133.0" layoutY="283.0" prefHeight="25.0" prefWidth="217.0"
+        <JFXTextField fx:id="email" focusColor="#48a5ea" layoutX="133.0" layoutY="283.0" prefHeight="25.0"
+                      prefWidth="217.0"
                       promptText="Email"/>
-        <JFXTextField focusColor="#48a5ea" layoutX="418.0" layoutY="92.0" prefHeight="25.0" prefWidth="217.0"
+        <JFXTextField fx:id="last_name" focusColor="#48a5ea" layoutX="418.0" layoutY="92.0" prefHeight="25.0" prefWidth="217.0"
                       promptText="Last Name"/>
-        <DatePicker layoutX="418.0" layoutY="157.0" prefHeight="25.0" prefWidth="217.0"
-                      promptText="Birth date"/>
-        <JFXTextField focusColor="#48a5ea" layoutX="412.0" layoutY="283.0" prefHeight="25.0" prefWidth="217.0"
+        <DatePicker fx:id="birth_date" layoutX="418.0" layoutY="157.0" prefHeight="25.0" prefWidth="217.0"
+                    promptText="Birth date"/>
+        <JFXTextField fx:id="phone_number" focusColor="#48a5ea" layoutX="412.0" layoutY="283.0" prefHeight="25.0"
+                      prefWidth="217.0"
                       promptText="Phone Number"/>
-        <Label layoutX="133.0" layoutY="31.0" text="Basic Details" textFill="#48a5ea">
+        <Label layoutX="133.0" layoutY="31.0" text="Update user basic details" textFill="#48a5ea">
             <font>
                 <Font name="System Bold" size="16.0"/>
             </font>
         </Label>
-        <JFXTextField focusColor="#48a5ea" layoutX="133.0" layoutY="224.0" prefHeight="25.0" prefWidth="217.0"
-                     promptText="Country"/>
-        <JFXTextField focusColor="#48a5ea" layoutX="415.0" layoutY="224.0" prefHeight="25.0" prefWidth="94.0"
-                     promptText="State"/>
-        <JFXTextField focusColor="#48a5ea" layoutX="535.0" layoutY="224.0" prefHeight="25.0" prefWidth="94.0"
-                     promptText="City"/>
-        <JFXButton layoutX="133.0" layoutY="349.0" prefHeight="25.0" prefWidth="94.0" text="Reset All" onMousePressed="#resetAll"
-                   style="-fx-background-color: #48A5EA;" textFill="WHITE"/>
+        <JFXTextField fx:id="country" focusColor="#48a5ea" layoutX="133.0" layoutY="224.0" prefHeight="25.0"
+                      prefWidth="217.0"
+                      promptText="Country"/>
+        <JFXTextField fx:id="state" focusColor="#48a5ea" layoutX="415.0" layoutY="224.0" prefHeight="25.0"
+                      prefWidth="94.0"
+                      promptText="State"/>
+        <JFXTextField fx:id="city" focusColor="#48a5ea" layoutX="535.0" layoutY="224.0" prefHeight="25.0"
+                      prefWidth="94.0"
+                      promptText="City"/>
+        <JFXButton layoutX="133.0" layoutY="349.0" prefHeight="25.0" prefWidth="94.0" text="Clear All"
+                   style="-fx-background-color: #48A5EA;" textFill="WHITE" onMousePressed="#resetAll"/>
         <JFXButton layoutX="524.0" layoutY="349.0" prefHeight="25.0" prefWidth="116.0"
-                   style="-fx-background-color: #48A5EA;" text="Update a user" textFill="WHITE"/>
+                   style="-fx-background-color: #48A5EA;" text="Update user" textFill="WHITE"
+                   onMousePressed="#updateUser"/>
         <Separator layoutX="133.0" layoutY="68.0" prefHeight="1.0" prefWidth="520.0"/>
         <Label id="btn_exit" fx:id="btn_exit" layoutX="675.0" layoutY="2.0" onMousePressed="#handleCloseButton"
                prefHeight="25.0" prefWidth="21.0" text="X" textFill="#48a5ea">

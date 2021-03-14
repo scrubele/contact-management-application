@@ -127,4 +127,19 @@ public class Person {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "idperson=" + idperson +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", imagePath='" + imagePath + '\'' +
+                ", birthDate=" + birthDate +
+                '}';
+    }
 }

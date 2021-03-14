@@ -6,17 +6,40 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class AddUserController implements Initializable {
 
+
     @FXML
-    private DatePicker datePicker;
+    private TextField first_name;
+    @FXML
+    private TextField last_name;
+    @FXML
+    private TextField nickname;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextField phone_number;
+    @FXML
+    private DatePicker birth_date;
+    @FXML
+    private TextField country;
+    @FXML
+    private TextField state;
+    @FXML
+    private TextField city;
 
     @FXML
     private void handleCloseButton(MouseEvent event) {
@@ -25,19 +48,39 @@ public class AddUserController implements Initializable {
 
     @FXML
     public void handleHomeButton() throws IOException {
-        // This is quite sparse : just load the next scene on click, and voilà!
         App.setRoot("/fr/isen/java2/view/HomePageScreen");
     }
 
     @FXML
     public void handleUserListButton() throws IOException {
-        // This is quite sparse : just load the next scene on click, and voilà!
-        App.setRoot("/fr/isen/java2/view/AddUserScreen");
+        App.launchUserListController("/fr/isen/java2/view/UserListScreen");
     }
 
     @FXML
     public void resetAll() throws IOException {
+        last_name.clear();
+        first_name.clear();
+        nickname.clear();
+        phone_number.clear();
+        country.clear();
+        state.clear();
+        city.clear();
+        email.clear();
+
     }
+
+    @FXML
+    public void addUser() throws IOException, ParseException {
+        String address = country.getText() + ", " + state.getText() + ", " + city.getText();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date d = formatter.parse(birth_date.getValue().toString());
+        formatter.applyPattern("yyyy-MM-dd hh:mm:ss.SSSSSS");
+        String formattedBirthDate = formatter.format(d);
+        App.personDao.addPerson(last_name.getText(), first_name.getText(), nickname.getText(), phone_number.getText()
+                , address, email.getText(), formattedBirthDate);
+        System.out.println("Added");
+    }
+
 
 
     @FXML
@@ -47,9 +90,9 @@ public class AddUserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        final JFXDatePicker datePicker = new JFXDatePicker(LocalDate.now());
-        datePicker.setOnAction(event -> {
-            LocalDate date = datePicker.getValue();
+        final JFXDatePicker birth_date = new JFXDatePicker(LocalDate.now());
+        birth_date.setOnAction(event -> {
+            LocalDate date = birth_date.getValue();
             System.out.println("Selected date: " + date);
         });
     }

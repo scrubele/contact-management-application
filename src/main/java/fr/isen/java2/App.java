@@ -1,6 +1,7 @@
 package fr.isen.java2;
 
 import com.jfoenix.controls.JFXDatePicker;
+import fr.isen.java2.db.daos.PersonDao;
 import fr.isen.java2.db.entities.Person;
 import fr.isen.java2.view.UserListController;
 import javafx.application.Application;
@@ -29,6 +30,7 @@ import java.util.List;
 public class App extends Application {
 
 	private static Scene scene;
+	public static PersonDao personDao = new PersonDao();
 
 	//init xy offsets
 	private double xOffset = 0;
@@ -72,9 +74,9 @@ public class App extends Application {
 		FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
 
 		//create and set controller
-		List<Person> list = new ArrayList<>();
-		list.add(new Person(4, "Granger", "Hermione", "Hermione",
-				"+380967498094", "USA", "Hermione.Granger@gmail.com", LocalDate.now()));
+		List<Person> list = personDao.listPersons();
+//		list.add(new Person(4, "Granger", "Hermione", "Hermione",
+//				"+380967498094", "USA", "Hermione.Granger@gmail.com", LocalDate.now()));
 		UserListController controller = new UserListController(list);
 		loader.setController(controller);
 

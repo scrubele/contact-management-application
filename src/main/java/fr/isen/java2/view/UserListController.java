@@ -3,22 +3,22 @@ package fr.isen.java2.view;
 
 import fr.isen.java2.App;
 import fr.isen.java2.db.entities.Person;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -40,6 +40,19 @@ public class UserListController implements Initializable {
     protected ListView<Pane> listView;
 
     @FXML
+    private Button btn_add_user;
+
+    @FXML
+    private Button btn_home;
+
+    @FXML
+    private Button btn_x;
+
+    @FXML
+    private Button btn_exit;
+
+
+    @FXML
     private void handleCloseButton(MouseEvent event) {
         System.exit(0);
     }
@@ -56,40 +69,74 @@ public class UserListController implements Initializable {
         App.setRoot("/fr/isen/java2/view/AddUserScreen");
     }
 
-    @FXML
-    public void resetAll() throws IOException {
-    }
 
-
-    /**
-     * initialize window, will be called after loading fxml file
-     */
     public void init() {
         int counter = 0;
-
-        //create rows
         for (Person entry : this.list) {
             addRow(entry, ROW1_FXML);
 
-            //increment counter
             counter++;
         }
+        initListeners();
     }
 
-    protected void addRow (Person entry, String fxmlPath) {
-        // load fxml
+    public void initListeners() {
+        btn_add_user.setOnMouseClicked(
+                (Event event) -> {
+                    btn_add_user.requestFocus();
+                    try {
+                        App.setRoot("/fr/isen/java2/view/AddUserScreen");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    event.consume();
+                });
+        btn_home.setOnMouseClicked(
+                (Event event) -> {
+                    btn_home.requestFocus();
+                    try {
+                        handleHomeButton();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    event.consume();
+                });
+        btn_x.setOnMouseClicked(
+                (Event event) -> {
+                    btn_x.requestFocus();
+                    System.exit(0);
+                    event.consume();
+                });
+        btn_exit.setOnMouseClicked(
+                (Event event) -> {
+                    btn_x.requestFocus();
+                    System.exit(0);
+                    event.consume();
+                });
+        final Pane[] selectedItem = {new Pane()};
+        listView.setOnMouseClicked(event -> {
+            selectedItem[0] = listView.getSelectionModel().getSelectedItem();
+            Label textField = (Label) selectedItem[0].getChildren().get(0);
+            Integer id = Integer.valueOf(textField.getText());
+            Person person = App.personDao.getPerson(id);
+            System.out.println("clicked on " + selectedItem[0].toString()+ textField + " "+ id);
+            try {
+                App.setRoot("/fr/isen/java2/view/UpdateUserScreen");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            UpdateUserController updateUserController = new UpdateUserController();
+            updateUserController.init(person);
+        });
+    }
+
+    protected void addRow(Person entry, String fxmlPath) {
         try {
             FXMLLoader loader = new FXMLLoader(App.class.getResource(fxmlPath + ".fxml"));
-
-            //set controller
-            UserRowController UserRowController = new UserRowController();
-            loader.setController(UserRowController);
-
-            AnchorPane rootPane = loader.load();//FXMLLoader.load(new File(fxmlPath).toURI().toURL());
-
-            //initialize tab controller
-            UserRowController.init(entry);
-
+            UserRowController userRowController = new UserRowController();
+            loader.setController(userRowController);
+            AnchorPane rootPane = loader.load();
+            userRowController.init(entry);
             this.listView.getItems().add(rootPane);
         } catch (IOException e) {
             e.printStackTrace();
@@ -97,11 +144,7 @@ public class UserListController implements Initializable {
         }
     }
 
-    /**
-     * initialize window, this method isnt used in this example (only Interface Initializable is important for Code Injection --> @FXML annotation)
-     */
     public void initialize(URL location, ResourceBundle resources) {
-        //
     }
 
 }

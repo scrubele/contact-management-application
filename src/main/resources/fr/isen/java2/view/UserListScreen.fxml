@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane id="AnchorPane" prefHeight="417.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/8.0.111">
+    <children>
+        <Pane prefHeight="417.0" prefWidth="110.0" style="-fx-background-color: #48A5EA;">
+            <children>
+                <Button fx:id="btn_home"
+                        style="-fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0;-fx-background-color: transparent;"
+                        layoutX="30.0" layoutY="37.0">
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="31.0"
+                                   pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@images/home.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btn_all_users"
+                        style="-fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0;-fx-background-color: transparent;"
+                        layoutX="30.0" layoutY="137.0">
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="31.0"
+                                   pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@images/user-group.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btn_add_user"
+                        style="-fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0;-fx-background-color: transparent;"
+                        layoutX="30.0" layoutY="237.0">
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="31.0"
+                                   pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@images/add-user.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btn_x"
+                        style="-fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0;-fx-background-color: transparent;"
+                        layoutX="30.0" layoutY="337.0">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0"
+                                   pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@images/x-mark-xxl.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </Pane>
+        <Pane layoutX="120.0" layoutY="31.0" prefWidth="560.0" prefHeight="10.0">
+            <Label fx:id="lastName" layoutX="30.0" prefWidth="100.0" text="Last name"  textFill="#48a5ea">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <Label fx:id="firstName" layoutX="140.0" prefWidth="100.0" text="First name"  textFill="#48a5ea">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <Label fx:id="nickname" layoutX="270.0" prefWidth="130.0" text="Nick name"  textFill="#48a5ea">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+        </Pane>
+        <JFXListView fx:id="listView" layoutX="120.0" layoutY="68.0" prefHeight="340.0" prefWidth="560.0"
+                     style="    -fx-selection-bar:#48A5EA;"/>
+        <Button fx:id="btn_exit"
+                style="-fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0;-fx-background-color: transparent;"
+                layoutX="667.0" layoutY="2.0">
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="15.0"
+                           pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@images/x-mark-blue.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
+</AnchorPane>

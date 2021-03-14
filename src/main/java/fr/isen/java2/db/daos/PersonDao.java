@@ -6,6 +6,7 @@ import fr.isen.java2.db.entities.Person;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,16 +34,7 @@ public class PersonDao {
         return personList;
     }
 
-    public Person addPerson(Person person) {
-        Object[] values = {
-                person.getLastName(),
-                person.getFirstName(),
-                person.getNickname(),
-                person.getPhoneNumber(),
-                person.getAddress(),
-                person.getEmailAddress(),
-                Date.valueOf(person.getBirthDate())
-        };
+    public Person addPerson(Object[] values) {
         Object[] localColumnNames = Arrays.copyOfRange(columnNames, 1, columnNames.length);
         try (
                 ResultSet ids = database.insert(tableName, localColumnNames, values)
@@ -54,6 +46,36 @@ public class PersonDao {
             throwables.printStackTrace();
         }
         return null;
+    }
+    public Person addPerson(Person person) {
+        Object[] values = {
+                person.getLastName(),
+                person.getFirstName(),
+                person.getNickname(),
+                person.getPhoneNumber(),
+                person.getAddress(),
+                person.getEmailAddress(),
+                Date.valueOf(person.getBirthDate())
+        };
+        return addPerson(values);
+    }
+    public Person addPerson(String lastName,
+                            String firstName,
+                            String nickname,
+                            String phoneNumber,
+                            String address,
+                            String emailAddress,
+                            String birthDate) {
+        Object[] values = {
+                lastName,
+                firstName,
+                nickname,
+                phoneNumber,
+                address,
+                emailAddress,
+                birthDate
+        };
+        return addPerson(values);
     }
 
     public List<Person> addPersons(List<Person> Persons) {

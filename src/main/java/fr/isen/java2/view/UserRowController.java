@@ -13,12 +13,14 @@ import java.util.ResourceBundle;
 public class UserRowController implements Initializable {
 
     @FXML
+    protected Label idperson;
+    @FXML
     protected Label lastName;
     @FXML
-//    protected Label firstName;
-//    @FXML
-//    protected Label nickName;
-//
+    protected Label firstName;
+    @FXML
+    protected Label nickname;
+
 //    @FXML
 //    protected ImageView imageView;
 
@@ -30,9 +32,10 @@ public class UserRowController implements Initializable {
 //        Image image = new Image(entry.getImagePath());
 
         //set title and image (icon)
+        this.idperson.setText(entry.getIdperson().toString());
         this.lastName.setText(entry.getLastName());
-//        this.firstName.setText(entry.getFirstName());
-//        this.nickName.setText(entry.getNickname());
+        this.firstName.setText(entry.getFirstName());
+        this.nickname.setText(entry.getNickname());
 //        this.imageView.setImage(image);
     }
 
@@ -40,4 +43,12 @@ public class UserRowController implements Initializable {
 
     }
 
+    @Override
+    public String toString() {
+        return "UserRowController{" +
+                "lastName=" + lastName +
+                ", firstName=" + firstName +
+                ", nickname=" + nickname +
+                '}';
+    }
 }

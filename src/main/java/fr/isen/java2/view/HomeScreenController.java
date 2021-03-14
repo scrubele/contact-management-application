@@ -24,19 +24,16 @@ public class HomeScreenController {
 
 	@FXML
 	public void handleHomeButton() throws IOException {
-		// This is quite sparse : just load the next scene on click, and voilà!
 		App.setRoot("/fr/isen/java2/view/HomePageScreen");
 	}
 
 	@FXML
-	public void handleListView() throws IOException {
-		// This is quite sparse : just load the next scene on click, and voilà!
+	public void handleUserListButton() throws IOException {
 		App.setRoot("/fr/isen/java2/view/AddUserScreen");
 	}
 
 	@FXML
-	public void handleUserListButton() throws IOException {
-		// This is quite sparse : just load the next scene on click, and voilà!
-		App.launchUserListController("/fr/isen/java2/view/CustomListView");
+	public void handleListView() throws IOException {
+		App.launchUserListController("/fr/isen/java2/view/UserListScreen");
 	}
 }
