@@ -35,15 +35,18 @@ public class PersonDaoTestCase {
                         "email_address VARCHAR(150) NULL,\n" +
                         "birth_date DATE NULL);");
         stmt.executeUpdate("DELETE FROM person");
-        stmt.executeUpdate("INSERT INTO person(idperson, lastName, firstName, nickname, phone_number, address, email_address, birth_date) "
-                + "VALUES (1, 'Bond', 'James', 'bond007', '+380967498094', 'USA', 'james.bond@gmail.com'," +
+        stmt.executeUpdate(
+                "INSERT INTO person(idperson, lastName, firstName, nickname, phone_number, address, email_address, birth_date) "
+                        + "VALUES (1, 'Bond', 'James', 'bond007', '+380967498094', 'USA', 'james.bond@gmail.com'," +
                         "'1964-11-14 12:00:00.000)')");
-        stmt.executeUpdate("INSERT INTO person(idperson, lastName, firstName, nickname, phone_number, address, email_address, birth_date) "
-                + "VALUES (2, 'Jolie', 'Angelina', 'angelina111', '+380967498094', 'USA', 'angelina.jolie@gmail.com'," +
-                "'1964-11-14 12:00:00.000)')");
-        stmt.executeUpdate("INSERT INTO person(idperson, lastName, firstName, nickname, phone_number, address, email_address, birth_date) "
-                + "VALUES (3, 'Potter', 'Harry', 'harry', '+380967498094', 'USA', 'harry.potter@gmail.com'," +
-                "'1964-11-14 12:00:00.000)')");
+        stmt.executeUpdate(
+                "INSERT INTO person(idperson, lastName, firstName, nickname, phone_number, address, email_address, birth_date) "
+                        + "VALUES (2, 'Jolie', 'Angelina', 'angelina111', '+380967498094', 'USA', 'angelina.jolie@gmail.com'," +
+                        "'1964-11-14 12:00:00.000)')");
+        stmt.executeUpdate(
+                "INSERT INTO person(idperson, lastName, firstName, nickname, phone_number, address, email_address, birth_date) "
+                        + "VALUES (3, 'Potter', 'Harry', 'harry', '+380967498094', 'USA', 'harry.potter@gmail.com'," +
+                        "'1964-11-14 12:00:00.000)')");
         stmt.close();
         connection.close();
     }
@@ -101,8 +104,9 @@ public class PersonDaoTestCase {
         statement.close();
         connection.close();
     }
+
     @Test
-    public void shouldGetById(){
+    public void shouldGetById() {
         Person person = personDao.getPerson(2);
         assertThat(person.getIdperson()).isEqualTo(2);
         assertThat(person.getLastName()).isEqualTo("Jolie");

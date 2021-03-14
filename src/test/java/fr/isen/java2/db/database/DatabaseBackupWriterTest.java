@@ -10,8 +10,8 @@ import java.util.List;
 
 public class DatabaseBackupWriterTest extends TestCase {
 
-    private DatabaseBackupWriter backupWriter = new DatabaseBackupWriter();
     private static List<String[]> dataList = new ArrayList<>();
+    private DatabaseBackupWriter backupWriter = new DatabaseBackupWriter();
 
     @Before
     private static void initList() {

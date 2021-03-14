@@ -77,7 +77,7 @@ public class Database {
         return statement.executeQuery();
     }
 
-    public int update(String table, Object [] columns, String requirement, Object[] params) throws SQLException {
+    public int update(String table, Object[] columns, String requirement, Object[] params) throws SQLException {
         query = new Query();
 
         query.update(table)

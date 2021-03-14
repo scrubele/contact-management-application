@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package fr.isen.java2.view;
 
@@ -10,30 +10,30 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 
 public class HomeScreenController {
-	
-	@FXML
-	public void handleLaunchButton() throws IOException {
-		// This is quite sparse : just load the next scene on click, and voilà!		
-		App.setRoot("/isen/quiz/fr.isen.java2.view/QuizzOverview");
-	}
 
-	@FXML
-	private void handleCloseButton(MouseEvent event) {
-		System.exit(0);
-	}
+    @FXML
+    public void handleLaunchButton() throws IOException {
+        // This is quite sparse : just load the next scene on click, and voilà!
+        App.setRoot("/isen/quiz/fr.isen.java2.view/QuizzOverview");
+    }
 
-	@FXML
-	public void handleHomeButton() throws IOException {
-		App.setRoot("/fr/isen/java2/view/HomePageScreen");
-	}
+    @FXML
+    private void handleCloseButton(MouseEvent event) {
+        System.exit(0);
+    }
 
-	@FXML
-	public void handleUserListButton() throws IOException {
-		App.setRoot("/fr/isen/java2/view/AddUserScreen");
-	}
+    @FXML
+    public void handleHomeButton() throws IOException {
+        App.setRoot("/fr/isen/java2/view/HomePageScreen");
+    }
 
-	@FXML
-	public void handleListView() throws IOException {
-		App.launchUserListController("/fr/isen/java2/view/UserListScreen");
-	}
+    @FXML
+    public void handleUserListButton() throws IOException {
+        App.setRoot("/fr/isen/java2/view/AddUserScreen");
+    }
+
+    @FXML
+    public void handleListView() throws IOException {
+        App.launchUserListController("/fr/isen/java2/view/UserListScreen");
+    }
 }

@@ -1,6 +1,5 @@
 package fr.isen.java2;
 
-import com.jfoenix.controls.JFXDatePicker;
 import fr.isen.java2.db.daos.PersonDao;
 import fr.isen.java2.db.entities.Person;
 import fr.isen.java2.view.UserListController;
@@ -8,84 +7,71 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class App extends Application {
 
-	private static Scene scene;
-	public static PersonDao personDao = new PersonDao();
+    public static PersonDao personDao = new PersonDao();
+    private static Scene scene;
+    //init xy offsets
+    private double xOffset = 0;
+    private double yOffset = 0;
 
-	//init xy offsets
-	private double xOffset = 0;
-	private double yOffset = 0;
-	@Override
-	public void start(Stage stage) throws Exception {
-		Parent root = loadFXML("/fr/isen/java2/view/HomePageScreen");
-		stage.initStyle(StageStyle.UNDECORATED);
+    public static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
+    }
 
-		//set mouse pressed
-		root.setOnMousePressed(event -> {
-			xOffset = event.getSceneX();
-			yOffset = event.getSceneY();
-		});
-		//set mouse drag
-		root.setOnMouseDragged(event -> {
-			stage.setX(event.getScreenX() - xOffset);
-			stage.setY(event.getScreenY() - yOffset);
-		});
+    public static void setRoot(FXMLLoader fxmlLoader) throws IOException {
+        scene.setRoot(fxmlLoader.load());
+    }
 
-		scene = new Scene(root);
+    private static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
+    }
 
-		stage.setScene(scene);
-		stage.show();
-	}
+    public static void main(String[] args) {
+        launch();
+    }
 
-	public static void setRoot(String fxml) throws IOException {
-		scene.setRoot(loadFXML(fxml));
-	}
+    public static void launchUserListController(String fxml) throws IOException {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
 
-	public static void setRoot(FXMLLoader fxmlLoader) throws IOException {
-		scene.setRoot(fxmlLoader.load());
-	}
-
-	private static Parent loadFXML(String fxml) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-		return fxmlLoader.load();
-	}
-
-	public static void main(String[] args) {
-		launch();
-	}
-
-	public static void  launchUserListController(String fxml) throws IOException {
-		FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-
-		//create and set controller
-		List<Person> list = personDao.listPersons();
+        //create and set controller
+        List<Person> list = personDao.listPersons();
 //		list.add(new Person(4, "Granger", "Hermione", "Hermione",
 //				"+380967498094", "USA", "Hermione.Granger@gmail.com", LocalDate.now()));
-		UserListController controller = new UserListController(list);
-		loader.setController(controller);
+        UserListController controller = new UserListController(list);
+        loader.setController(controller);
 
-		scene.setRoot(loader.load());
-		controller.init();
+        scene.setRoot(loader.load());
+        controller.init();
 
-	}
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = loadFXML("/fr/isen/java2/view/HomePageScreen");
+        stage.initStyle(StageStyle.UNDECORATED);
+
+        //set mouse pressed
+        root.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+        //set mouse drag
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
+
+        scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
+    }
 }

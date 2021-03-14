@@ -5,10 +5,8 @@ import fr.isen.java2.App;
 import fr.isen.java2.db.entities.Person;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;

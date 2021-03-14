@@ -4,12 +4,13 @@ package fr.isen.java2.view;
 import fr.isen.java2.App;
 import fr.isen.java2.db.entities.Person;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -24,6 +25,20 @@ public class UserListController implements Initializable {
     protected static final String ROW1_FXML = "/fr/isen/java2/view/UserRow";
 
     protected List<Person> list = null;
+    @FXML
+    protected ListView<Pane> listView;
+    @FXML
+    private Button btn_add_user;
+    @FXML
+    private Button btn_home;
+    @FXML
+    private Button btn_x;
+    @FXML
+    private Button btn_exit;
+    @FXML
+    private Button btn_tooltip;
+    @FXML
+    private Button btn_backup;
 
     public UserListController(List<Person> list) {
         this.list = list;
@@ -32,27 +47,6 @@ public class UserListController implements Initializable {
     public UserListController() {
         this.list = list;
     }
-
-    @FXML
-    protected ListView<Pane> listView;
-
-    @FXML
-    private Button btn_add_user;
-
-    @FXML
-    private Button btn_home;
-
-    @FXML
-    private Button btn_x;
-
-    @FXML
-    private Button btn_exit;
-
-    @FXML
-    private Button btn_tooltip;
-
-    @FXML
-    private Button btn_backup;
 
     @FXML
     private void handleCloseButton(MouseEvent event) {
@@ -127,7 +121,7 @@ public class UserListController implements Initializable {
             Label textField = (Label) selectedItem[0].getChildren().get(0);
             Integer id = Integer.valueOf(textField.getText());
             Person person = App.personDao.getPerson(id);
-            System.out.println("clicked on " + selectedItem[0].toString()+ textField + " "+ id);
+            System.out.println("clicked on " + selectedItem[0].toString() + textField + " " + id);
             FXMLLoader loader = new FXMLLoader(App.class.getResource("/fr/isen/java2/view/UpdateUserScreen.fxml"));
             try {
                 App.setRoot(loader);

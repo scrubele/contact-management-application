@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane id="AnchorPane" prefHeight="417.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefHeight="417.0" prefWidth="700.0"
             xmlns="http://javafx.com/javafx/8.0.111">
     <children>
         <Pane prefHeight="417.0" prefWidth="110.0" style="-fx-background-color: #48A5EA;">
@@ -79,17 +79,17 @@
             </children>
         </Pane>
         <Pane layoutX="120.0" layoutY="31.0" prefWidth="560.0" prefHeight="10.0">
-            <Label fx:id="lastName" layoutX="30.0" prefWidth="100.0" text="Last name"  textFill="#48a5ea">
+            <Label fx:id="lastName" layoutX="30.0" prefWidth="100.0" text="Last name" textFill="#48a5ea">
                 <font>
                     <Font name="System Bold" size="15.0"/>
                 </font>
             </Label>
-            <Label fx:id="firstName" layoutX="140.0" prefWidth="100.0" text="First name"  textFill="#48a5ea">
+            <Label fx:id="firstName" layoutX="140.0" prefWidth="100.0" text="First name" textFill="#48a5ea">
                 <font>
                     <Font name="System Bold" size="15.0"/>
                 </font>
             </Label>
-            <Label fx:id="nickname" layoutX="270.0" prefWidth="130.0" text="Nick name"  textFill="#48a5ea">
+            <Label fx:id="nickname" layoutX="270.0" prefWidth="130.0" text="Nick name" textFill="#48a5ea">
                 <font>
                     <Font name="System Bold" size="15.0"/>
                 </font>
@@ -99,7 +99,7 @@
                      style="    -fx-selection-bar:#48A5EA;"/>
         <Button id="btn_tooltip" fx:id="btn_tooltip" layoutX="645.0" layoutY="31.0">
             <text>?</text>
-<!--            <tooltip><Tooltip text="To show user details click on user row " /></tooltip>-->
+            <!--            <tooltip><Tooltip text="To show user details click on user row " /></tooltip>-->
         </Button>
         <Button fx:id="btn_exit"
                 style="-fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0;-fx-background-color: transparent;"
