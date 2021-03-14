@@ -21,6 +21,8 @@ public class App extends Application {
     public final static String addUserScreenFXML;
     public final static String backupScreenFXML;
     public final static String updateUserScreenFXML;
+    public static PersonDao personDao = new PersonDao();
+    private static Scene scene;
 
     static {
         final String resourceFolder = "/fr/isen/java2/view/";
@@ -31,8 +33,6 @@ public class App extends Application {
         updateUserScreenFXML = resourceFolder + "UpdateUserScreen";
     }
 
-    public static PersonDao personDao = new PersonDao();
-    private static Scene scene;
     private double xOffset = 0;
     private double yOffset = 0;
 
@@ -53,23 +53,6 @@ public class App extends Application {
         launch();
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = loadFXML(App.homePageScreenFXML);
-        stage.initStyle(StageStyle.UNDECORATED);
-        root.setOnMousePressed(event -> {
-            xOffset = event.getSceneX();
-            yOffset = event.getSceneY();
-        });
-        root.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - xOffset);
-            stage.setY(event.getScreenY() - yOffset);
-        });
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public static void launchUserListController() throws IOException {
         FXMLLoader loader = new FXMLLoader(App.class.getResource(App.userListScreenFXML + ".fxml"));
         List<Person> list = personDao.listPersons();
@@ -86,5 +69,20 @@ public class App extends Application {
         alert.showAndWait();
     }
 
-
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = loadFXML(App.homePageScreenFXML);
+        stage.initStyle(StageStyle.UNDECORATED);
+        root.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

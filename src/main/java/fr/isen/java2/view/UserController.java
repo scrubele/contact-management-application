@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import org.apache.commons.lang3.ObjectUtils;
 
 import java.io.IOException;
 import java.net.URL;
@@ -82,8 +81,7 @@ public class UserController implements Initializable {
             java.util.Date d = formatter.parse(birth_date.getValue().toString());
             formatter.applyPattern("yyyy-MM-dd hh:mm:ss.SSSSSS");
             return formatter.format(d);
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             App.showAlert("Error", "Date couldn't be null!");
         }
         return null;
