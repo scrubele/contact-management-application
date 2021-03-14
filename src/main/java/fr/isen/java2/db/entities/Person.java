@@ -1,6 +1,7 @@
 package fr.isen.java2.db.entities;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Person {
 
@@ -141,5 +142,13 @@ public class Person {
                 ", imagePath='" + imagePath + '\'' +
                 ", birthDate=" + birthDate +
                 '}';
+    }
+
+    public String[] getFields(){
+        String [] fieldList = {
+                idperson.toString(), firstName, lastName, nickname, phoneNumber,
+                address, emailAddress, imagePath, birthDate.toString()
+        };
+        return fieldList;
     }
 }

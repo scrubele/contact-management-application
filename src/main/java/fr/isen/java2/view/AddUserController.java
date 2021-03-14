@@ -49,7 +49,7 @@ public class AddUserController implements Initializable {
 
     @FXML
     public void handleBackupButton() throws IOException {
-        App.setRoot("/fr/isen/java2/view/BackupDatabaseScreen");
+        App.setRoot("/fr/isen/java2/view/BackupScreen");
     }
 
     @FXML
@@ -72,7 +72,7 @@ public class AddUserController implements Initializable {
 
     @FXML
     public void addUser() throws IOException, ParseException {
-        String address = country.getText() + ", " + state.getText() + ", " + city.getText();
+        String address = country.getText() + "; " + state.getText() + "; " + city.getText();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         java.util.Date d = formatter.parse(birth_date.getValue().toString());
         formatter.applyPattern("yyyy-MM-dd hh:mm:ss.SSSSSS");
