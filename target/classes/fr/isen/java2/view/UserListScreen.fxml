@@ -94,6 +94,11 @@
                     <Font name="System Bold" size="15.0"/>
                 </font>
             </Label>
+            <Label fx:id="more_info" layoutX="380.0" prefWidth="130.0" text="More info" textFill="#48a5ea">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
         </Pane>
         <JFXListView fx:id="listView" layoutX="120.0" layoutY="68.0" prefHeight="340.0" prefWidth="560.0"
                      style="    -fx-selection-bar:#48A5EA;"/>

@@ -26,7 +26,7 @@
                     </image>
                 </ImageView>
                 <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="197.0" pickOnBounds="true"
-                           preserveRatio="true">
+                           preserveRatio="true" onMousePressed="#handleAddUserButton">
                     <image>
                         <Image url="@images/add-user.png"/>
                     </image>
