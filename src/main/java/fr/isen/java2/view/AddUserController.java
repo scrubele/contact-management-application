@@ -14,5 +14,6 @@ public class AddUserController extends UserController {
         App.personDao.addPerson(last_name.getText(), first_name.getText(), nickname.getText(), phone_number.getText()
                 , address, email.getText(), formattedBirthDate);
         System.out.println("Added");
+        App.showAlert("Information Dialog", "User added!");
     }
 }

@@ -16,11 +16,21 @@ import java.util.List;
 
 public class App extends Application {
 
-    public final static String homePageScreenFXML = "/fr/isen/java2/view/HomePageScreen";
-    public final static String addUserScreenFXML = "/fr/isen/java2/view/AddUserScreen";
-    public final static String userListScreenFXML = "/fr/isen/java2/view/UserListScreen";
-    public final static String backupScreenFXML = "/fr/isen/java2/view/BackupScreen";
-    public final static String updateUserScreenFXML = "/fr/isen/java2/view/UpdateUserScreen.fxml";
+    public final static String homePageScreenFXML;
+    public final static String userListScreenFXML;
+    public final static String addUserScreenFXML;
+    public final static String backupScreenFXML;
+    public final static String updateUserScreenFXML;
+
+    static {
+        final String resourceFolder = "/fr/isen/java2/view/";
+        homePageScreenFXML = resourceFolder + "HomePageScreen";
+        userListScreenFXML = resourceFolder + "UserListScreen";
+        addUserScreenFXML = resourceFolder + "AddUserScreen";
+        backupScreenFXML = resourceFolder + "BackupScreen";
+        updateUserScreenFXML = resourceFolder + "UpdateUserScreen";
+    }
+
     public static PersonDao personDao = new PersonDao();
     private static Scene scene;
     private double xOffset = 0;
@@ -43,22 +53,6 @@ public class App extends Application {
         launch();
     }
 
-    public static void launchUserListController(String fxml) throws IOException {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        List<Person> list = personDao.listPersons();
-        UserListController controller = new UserListController(list);
-        loader.setController(controller);
-        scene.setRoot(loader.load());
-        controller.init();
-    }
-
-    public static void showAlert(String title, String contentText) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setContentText(contentText);
-        alert.showAndWait();
-    }
-
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = loadFXML(App.homePageScreenFXML);
@@ -75,5 +69,22 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
+    public static void launchUserListController() throws IOException {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource(App.userListScreenFXML + ".fxml"));
+        List<Person> list = personDao.listPersons();
+        UserListController controller = new UserListController(list);
+        loader.setController(controller);
+        scene.setRoot(loader.load());
+        controller.init();
+    }
+
+    public static void showAlert(String title, String contentText) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setContentText(contentText);
+        alert.showAndWait();
+    }
+
 
 }

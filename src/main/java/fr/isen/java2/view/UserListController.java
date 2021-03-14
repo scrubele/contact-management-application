@@ -115,7 +115,7 @@ public class UserListController implements Initializable {
         Label textField = (Label) selectedItem[0].getChildren().get(0);
         Integer id = Integer.valueOf(textField.getText());
         Person person = App.personDao.getPerson(id);
-        FXMLLoader loader = new FXMLLoader(App.class.getResource(App.updateUserScreenFXML));
+        FXMLLoader loader = new FXMLLoader(App.class.getResource(App.updateUserScreenFXML+ ".fxml"));
         try {
             App.setRoot(loader);
             UpdateUserController updateUserController = loader.getController();

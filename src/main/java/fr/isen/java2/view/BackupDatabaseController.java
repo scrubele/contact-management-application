@@ -35,7 +35,7 @@ public class BackupDatabaseController implements Initializable {
 
     @FXML
     public void handleUserListButton() throws IOException {
-        App.launchUserListController(App.userListScreenFXML);
+        App.launchUserListController();
     }
 
     @FXML

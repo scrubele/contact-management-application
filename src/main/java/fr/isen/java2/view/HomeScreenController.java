@@ -20,7 +20,7 @@ public class HomeScreenController {
 
     @FXML
     public void handleListView() throws IOException {
-        App.launchUserListController(App.userListScreenFXML);
+        App.launchUserListController();
     }
 
     @FXML

@@ -167,11 +167,11 @@ public class PersonDao {
     public Person deletePerson(Integer idperson) {
         Object[] params = {idperson};
         try (
-                ResultSet results = database.delete(tableName, "idPerson=?", params)
+                ResultSet results = database.delete(tableName, "idperson=?", params)
         ) {
 
             if (results.next()) {
-                return this.getPersonFromResultSet(results);
+                return null;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
