@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
 <AnchorPane id="AnchorPane" prefHeight="417.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1"
             xmlns="http://javafx.com/javafx/8.0.111" fx:controller="fr.isen.java2.view.UpdateUserController">
     <children>
@@ -26,7 +28,7 @@
                     </image>
                 </ImageView>
                 <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="40.0" layoutY="237.0" pickOnBounds="true"
-                           preserveRatio="true">
+                           preserveRatio="true" onMousePressed="#handleAddUserButton">
                     <image>
                         <Image url="@images/add-user.png"/>
                     </image>
@@ -39,7 +41,8 @@
                 </ImageView>
             </children>
         </Pane>
-        <JFXTextField fx:id="idperson" focusColor="#48a5ea" layoutX="133.0" layoutY="92.0" prefHeight="25.0" disable="true"
+        <JFXTextField fx:id="idperson" focusColor="#48a5ea" layoutX="133.0" layoutY="92.0" prefHeight="25.0"
+                      disable="true"
                       prefWidth="30.0"
                       promptText="First Name"/>
         <JFXTextField fx:id="first_name" focusColor="#48a5ea" layoutX="165.0" layoutY="92.0" prefHeight="25.0"
@@ -51,7 +54,8 @@
         <JFXTextField fx:id="email" focusColor="#48a5ea" layoutX="133.0" layoutY="283.0" prefHeight="25.0"
                       prefWidth="217.0"
                       promptText="Email"/>
-        <JFXTextField fx:id="last_name" focusColor="#48a5ea" layoutX="418.0" layoutY="92.0" prefHeight="25.0" prefWidth="217.0"
+        <JFXTextField fx:id="last_name" focusColor="#48a5ea" layoutX="418.0" layoutY="92.0" prefHeight="25.0"
+                      prefWidth="217.0"
                       promptText="Last Name"/>
         <DatePicker fx:id="birth_date" layoutX="418.0" layoutY="157.0" prefHeight="25.0" prefWidth="217.0"
                     promptText="Birth date"/>
@@ -81,6 +85,7 @@
                    style="-fx-background-color: #48A5EA;" text="Update user" textFill="WHITE"
                    onMousePressed="#updateUser"/>
         <Separator layoutX="133.0" layoutY="68.0" prefHeight="1.0" prefWidth="520.0"/>
+
         <Label id="btn_exit" fx:id="btn_exit" layoutX="675.0" layoutY="2.0" onMousePressed="#handleCloseButton"
                prefHeight="25.0" prefWidth="21.0" text="X" textFill="#48a5ea">
             <font>

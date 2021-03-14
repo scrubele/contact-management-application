@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -51,6 +48,8 @@ public class UserListController implements Initializable {
     @FXML
     private Button btn_exit;
 
+    @FXML
+    private Button btn_tooltip;
 
     @FXML
     private void handleCloseButton(MouseEvent event) {
@@ -130,6 +129,8 @@ public class UserListController implements Initializable {
             }
 
         });
+        btn_tooltip.setTooltip(new Tooltip("To view user details, click on user row"));
+
     }
 
     protected void addRow(Person entry, String fxmlPath) {

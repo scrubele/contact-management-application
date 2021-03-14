@@ -84,6 +84,10 @@
         </Pane>
         <JFXListView fx:id="listView" layoutX="120.0" layoutY="68.0" prefHeight="340.0" prefWidth="560.0"
                      style="    -fx-selection-bar:#48A5EA;"/>
+        <Button id="btn_tooltip" fx:id="btn_tooltip" layoutX="645.0" layoutY="31.0">
+            <text>?</text>
+<!--            <tooltip><Tooltip text="To show user details click on user row " /></tooltip>-->
+        </Button>
         <Button fx:id="btn_exit"
                 style="-fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0;-fx-background-color: transparent;"
                 layoutX="667.0" layoutY="2.0">

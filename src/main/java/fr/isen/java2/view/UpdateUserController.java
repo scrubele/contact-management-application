@@ -5,8 +5,10 @@ import fr.isen.java2.App;
 import fr.isen.java2.db.entities.Person;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -38,6 +40,7 @@ public class UpdateUserController implements Initializable {
     @FXML
     private TextField city;
 
+
     @FXML
     private void handleCloseButton(MouseEvent event) {
         System.exit(0);
@@ -51,6 +54,12 @@ public class UpdateUserController implements Initializable {
     @FXML
     public void handleUserListButton() throws IOException {
         App.launchUserListController("/fr/isen/java2/view/UserListScreen");
+    }
+
+    @FXML
+    public void handleAddUserButton() throws IOException {
+        App.setRoot("/fr/isen/java2/view/AddUserScreen");
+
     }
 
     @FXML
@@ -83,12 +92,6 @@ public class UpdateUserController implements Initializable {
     public void removeUser() {
         App.personDao.deletePerson(Integer.valueOf(idperson.getText()));
         System.out.println("Deleted");
-    }
-
-
-    @FXML
-    private void handleButtonAction(MouseEvent event) {
-        System.exit(0);
     }
 
     @Override
