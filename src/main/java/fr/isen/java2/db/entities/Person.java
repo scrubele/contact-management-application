@@ -11,6 +11,7 @@ public class Person {
     private String phoneNumber;
     private String address;
     private String emailAddress;
+    private String imagePath;
     private LocalDate birthDate;
 
     public Person() {
@@ -32,6 +33,26 @@ public class Person {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.emailAddress = emailAddress;
+        this.birthDate = birthDate;
+    }
+
+    public Person(Integer idperson,
+                  String lastName,
+                  String firstName,
+                  String nickname,
+                  String phoneNumber,
+                  String address,
+                  String emailAddress,
+                  LocalDate birthDate,
+                  String imagePath) {
+        this.idperson = idperson;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.nickname = nickname;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.emailAddress = emailAddress;
+        this.imagePath = imagePath;
         this.birthDate = birthDate;
     }
 
@@ -97,5 +118,13 @@ public class Person {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

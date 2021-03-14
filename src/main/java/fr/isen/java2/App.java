@@ -1,6 +1,8 @@
 package fr.isen.java2;
 
 import com.jfoenix.controls.JFXDatePicker;
+import fr.isen.java2.db.entities.Person;
+import fr.isen.java2.view.UserListController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,27 +18,17 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class App extends Application {
 
 	private static Scene scene;
-
-//	@Override
-//	public void start(Stage stage) throws IOException {
-//		// Put a fancy name on our window
-//		stage.setTitle("my beautiful title");
-//		stage.initStyle(StageStyle.UNDECORATED);
-//		// Load our first scene using the convenient method provided by JavaFX. Mind
-//		// your package hierarchy !
-//		scene = new Scene(loadFXML("/fr/isen/java2/view/AddUserScreen"), 640, 480);
-//
-//		// get the primary stage and put the first scene on the stage
-//		stage.setScene(scene);
-//		// Curtains up !
-//		stage.show();
-//	}
 
 	//init xy offsets
 	private double xOffset = 0;
@@ -76,4 +68,18 @@ public class App extends Application {
 		launch();
 	}
 
+	public static void  launchUserListController(String fxml) throws IOException {
+		FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+
+		//create and set controller
+		List<Person> list = new ArrayList<>();
+		list.add(new Person(4, "Granger", "Hermione", "Hermione",
+				"+380967498094", "USA", "Hermione.Granger@gmail.com", LocalDate.now()));
+		UserListController controller = new UserListController(list);
+		loader.setController(controller);
+
+		scene.setRoot(loader.load());
+		controller.init();
+
+	}
 }
