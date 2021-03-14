@@ -71,6 +71,28 @@ public class Query {
         return this;
     }
 
+    public Query update(String table){
+        query = new StringBuilder();
+        query.append("UPDATE ");
+        query.append(table);
+        query.append(" SET ");
+        return this;
+    }
+
+    public Query set(Object[] columns){
+        int count = columns.length;
+        if(count == 0)
+            throw new IllegalArgumentException("Invalid argument count");
+
+        for(Object column : columns){
+            query.append(column);
+            query.append(" = ");
+            query.append("?");
+            query.append(",");
+        }
+        query.deleteCharAt(query.lastIndexOf(","));
+        return this;
+    }
     public Query end() {
         query.append(";");
         return this;

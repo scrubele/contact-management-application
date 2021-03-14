@@ -91,4 +91,27 @@ public class PersonDao {
                 results.getString(String.valueOf(columnNames[6])),
                 results.getDate(String.valueOf(columnNames[7])).toLocalDate());
     }
+
+    public Person updatePerson(Person newPerson) {
+        Object[] params = {
+                newPerson.getLastName(),
+                newPerson.getFirstName(),
+                newPerson.getNickname(),
+                newPerson.getPhoneNumber(),
+                newPerson.getAddress(),
+                newPerson.getEmailAddress(),
+                Date.valueOf(newPerson.getBirthDate())
+        };
+        Object[] localColumnNames = Arrays.copyOfRange(columnNames, 1, columnNames.length);
+        try {
+            int ids = database.update(tableName, localColumnNames, "idPerson=" + newPerson.getIdperson(), params);
+
+            if (ids > 0) {
+                return this.getPerson(ids);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
 }

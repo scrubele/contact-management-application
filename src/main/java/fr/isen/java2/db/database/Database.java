@@ -77,6 +77,16 @@ public class Database {
         return statement.executeQuery();
     }
 
+    public int update(String table, Object [] columns, String requirement, Object[] params) throws SQLException {
+        query = new Query();
+
+        query.update(table)
+                .set(columns)
+                .where(requirement);
+        PreparedStatement statement = this.formPreparedStatement(query.getQuery(), params);
+        return statement.executeUpdate();
+    }
+
     public PreparedStatement formPreparedStatement(String query, Object[] params) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         if (params != null) {

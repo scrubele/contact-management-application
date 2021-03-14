@@ -5,7 +5,6 @@ import fr.isen.java2.App;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -13,7 +12,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class AddUserController implements Initializable {
+public class UpdateUserController implements Initializable {
 
     @FXML
     private DatePicker datePicker;
@@ -38,7 +37,6 @@ public class AddUserController implements Initializable {
     @FXML
     public void resetAll() throws IOException {
     }
-
 
     @FXML
     private void handleButtonAction(MouseEvent event) {

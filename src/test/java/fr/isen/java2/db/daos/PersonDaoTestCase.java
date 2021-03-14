@@ -82,6 +82,26 @@ public class PersonDaoTestCase {
     }
 
     @Test
+    public void shouldUpdatePerson() throws Exception {
+        // WHEN
+        Person person = new Person(3, "Granger", "Hermione", "Hermione",
+                "+380967498094", "USA", "Hermione.Granger@gmail.com", LocalDate.now());
+        personDao.updatePerson(person);
+        // THEN
+        Connection connection = DataSourceFactory.getDataSource().getConnection();
+        Statement statement = connection.createStatement();
+        String sqlQuery = String.format("SELECT * FROM Person WHERE lastname='%s'", person.getLastName());
+        ResultSet resultSet = statement.executeQuery(sqlQuery);
+        assertThat(resultSet.next()).isTrue();
+        assertThat(resultSet.getInt("idPerson")).isNotNull();
+        assertThat(resultSet.getString("lastName")).isEqualTo(person.getLastName());
+        assertThat(resultSet.getString("firstName")).isEqualTo(person.getFirstName());
+        assertThat(resultSet.next()).isFalse();
+        resultSet.close();
+        statement.close();
+        connection.close();
+    }
+    @Test
     public void shouldGetById(){
         Person person = personDao.getPerson(2);
         assertThat(person.getIdperson()).isEqualTo(2);

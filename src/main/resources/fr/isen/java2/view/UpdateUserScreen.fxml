@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.control.DatePicker?>
 <AnchorPane id="AnchorPane" prefHeight="417.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1"
-            xmlns="http://javafx.com/javafx/8.0.111" fx:controller="fr.isen.java2.view.AddUserController">
+            xmlns="http://javafx.com/javafx/8.0.111" fx:controller="fr.isen.java2.view.UpdateUserController">
     <children>
         <Pane prefHeight="417.0" prefWidth="110.0" style="-fx-background-color: #48A5EA;">
             <children>
@@ -56,10 +56,10 @@
                      promptText="State"/>
         <JFXTextField focusColor="#48a5ea" layoutX="535.0" layoutY="224.0" prefHeight="25.0" prefWidth="94.0"
                      promptText="City"/>
-        <JFXButton layoutX="133.0" layoutY="349.0" prefHeight="25.0" prefWidth="94.0" text="Reset All"
-                   style="-fx-background-color: #48A5EA;" textFill="WHITE" onMousePressed="#resetAll"/>
+        <JFXButton layoutX="133.0" layoutY="349.0" prefHeight="25.0" prefWidth="94.0" text="Reset All" onMousePressed="#resetAll"
+                   style="-fx-background-color: #48A5EA;" textFill="WHITE"/>
         <JFXButton layoutX="524.0" layoutY="349.0" prefHeight="25.0" prefWidth="116.0"
-                   style="-fx-background-color: #48A5EA;" text="Add user" textFill="WHITE"/>
+                   style="-fx-background-color: #48A5EA;" text="Update a user" textFill="WHITE"/>
         <Separator layoutX="133.0" layoutY="68.0" prefHeight="1.0" prefWidth="520.0"/>
         <Label id="btn_exit" fx:id="btn_exit" layoutX="675.0" layoutY="2.0" onMousePressed="#handleCloseButton"
                prefHeight="25.0" prefWidth="21.0" text="X" textFill="#48a5ea">
