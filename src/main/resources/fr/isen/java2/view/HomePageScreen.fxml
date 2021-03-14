@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="417.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isen.java2.view.HomeScreenController">
+    <children>
+        <Pane prefHeight="417.0" prefWidth="586.0" style="-fx-background-color: #48A5EA;">
+            <children>
+
+                <Label id="btn_exit" layoutX="32.0" layoutY="26.0" prefHeight="377.0" prefWidth="456.0" text="Contact Management System" textFill="#FFFFFF" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="60.0" />
+                    </font>
+                </Label>
+              <Label id="btn_exit" fx:id="btn_exit" layoutX="319.0" layoutY="161.0" onMousePressed="#handleCloseButton" prefHeight="25.0" prefWidth="21.0" text="X" textFill="#48a5ea">
+                  <font>
+                      <Font name="System Bold" size="16.0" />
+                  </font>
+              </Label>
+            </children>
+        </Pane>
+          <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="627.0" layoutY="43.0" onMousePressed="#handleHomeButton" pickOnBounds="true" preserveRatio="true">
+              <image>
+                  <Image url="@images/home-blue.png" />
+              </image>
+          </ImageView>
+          <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="628.0" layoutY="197.0" onMousePressed="#handleUserListButton" pickOnBounds="true" preserveRatio="true">
+              <image>
+                  <Image url="@images/user-blue.png" />
+              </image>
+          </ImageView>
+          <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="627.0" layoutY="354.0" onMousePressed="#handleCloseButton" pickOnBounds="true" preserveRatio="true">
+              <image>
+                  <Image url="@images/x-mark-blue.png" />
+              </image>
+          </ImageView>
+    </children>
+</AnchorPane>

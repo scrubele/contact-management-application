@@ -1,0 +1,13 @@
+fr/isen/java2/db/database/Query.class
+fr/isen/java2/App.class
+fr/isen/java2/view/CustomListView.class
+fr/isen/java2/view/CustomListView$CustomThing.class
+fr/isen/java2/view/HomeScreenController.class
+fr/isen/java2/view/CustomListView$CustomListCell.class
+fr/isen/java2/db/database/Database.class
+fr/isen/java2/db/database/DatabaseBackupWriter.class
+fr/isen/java2/view/AddUserController.class
+fr/isen/java2/db/daos/DataSourceFactory.class
+fr/isen/java2/db/daos/PersonDao.class
+fr/isen/java2/db/database/DatabaseConnector.class
+fr/isen/java2/db/entities/Person.class

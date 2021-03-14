@@ -1,0 +1,11 @@
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/db/daos/PersonDao.java
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/db/database/Database.java
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/db/database/DatabaseConnector.java
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/App.java
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/db/daos/DataSourceFactory.java
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/db/database/DatabaseBackupWriter.java
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/db/entities/Person.java
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/view/AddUserController.java
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/view/HomeScreenController.java
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/db/database/Query.java
+/home/scrubele/Documents/university/java/contact-management/src/main/java/fr/isen/java2/view/CustomListView.java
