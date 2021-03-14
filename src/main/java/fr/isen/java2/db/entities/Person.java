@@ -35,6 +35,7 @@ public class Person {
         this.address = address;
         this.emailAddress = emailAddress;
         this.birthDate = birthDate;
+        this.imagePath = "";
     }
 
     public Person(Integer idperson,

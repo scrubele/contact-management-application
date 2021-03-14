@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="50.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.141">
     <children>
@@ -33,5 +35,13 @@
                 <Font name="System" size="12.0"/>
             </font>
         </Label>
+        <ImageView  fx:id="imageView" layoutX="460.0" layoutY="6">
+            <image>
+                <Image
+                        url="@images/user-blue.png"
+                        backgroundLoading="true"
+                />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>
