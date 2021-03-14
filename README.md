@@ -1,1 +1,4 @@
-# java-pw-5
+# contact-management-application
+
+To run an application, use ```mvn clean javafx:run```
+
